@@ -118,15 +118,15 @@ const Layout = ({ onLogout, user }) => {
                                 <StatCard
                                     title="Total Tasks"
                                     value={stats.totalCount}
-                                    icon={<circle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-500" />} />
+                                    icon={<Circle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-500" />} />
                                 <StatCard
                                     title="Completed"
                                     value={stats.completedTasks}
-                                    icon={<circle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500" />} />
+                                    icon={<Circle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500" />} />
                                 <StatCard
                                     title="Pending"
                                     value={stats.pendingCount}
-                                    icon={<circle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-fuchsia-500" />} />
+                                    icon={<Circle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-fuchsia-500" />} />
                                 <StatCard
                                     title="Completion Rate"
                                     value={`${stats.completionPercentage}%`}
