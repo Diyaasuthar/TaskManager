@@ -167,7 +167,7 @@ const Layout = ({ onLogout, user }) => {
                                                 {task.title}
                                             </p>
                                             <p className="text-xs text-gray-500 mt-0.5">
-                                                {task.createdAt ? new Data(task.createdAt).toLocaleDataString() : "No data"}
+                                                {task.createdAt ? new Date(task.createdAt).toLocaleDateString() : "No data"}
                                             </p>
                                         </div>
                                         <span className={`x-2 py-1 text-xs rounded-full shrink-0 ml-2 ${task.completed ? 'bg-green-100 text-green-700' : 'bg-fuchsia-100 text-fuchsia-700'}`}>
