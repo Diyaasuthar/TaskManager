@@ -3,7 +3,7 @@ import Login from './components/Login.jsx';
 import { Route, useNavigate, Routes, Outlet, Navigate } from 'react-router-dom';
 import  Layout  from './components/Layout.jsx';
 import SignUp from './components/SignUp.jsx';
-import { Dashboard } from './pages/Dashboard.jsx';
+import  Dashboard  from './pages/Dashboard.jsx';
 import PendingPage from './pages/PendingPage.jsx';
 import CompletePage from './pages/CompletePage.jsx';
 import Profile from './components/Profile.jsx';
