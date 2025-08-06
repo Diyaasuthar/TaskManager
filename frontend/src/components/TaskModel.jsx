@@ -5,7 +5,6 @@ import { AlignLeft, Calendar, CheckCircle, Flag, PlusCircle, Save, X } from 'luc
 const API_BASE = 'http://localhost:4000/api/task'
 
 const TaskModal = ({ isOpen, onClose, taskToEdit, onSave, onLogout }) => {
-
   const [taskData, setTaskData] = useState(DEFAULT_TASK)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
@@ -14,7 +13,7 @@ const TaskModal = ({ isOpen, onClose, taskToEdit, onSave, onLogout }) => {
   useEffect(() => {
     if (!isOpen) return;
     if (taskToEdit) {
-      const normalized = taskToEdit.complete === 'yes' || taskToEdit.complete === true ? 'Yes' : 'No';
+      const normalized = taskToEdit.completed === 'yes' || taskToEdit.completed === true ? 'Yes' : 'No';
       setTaskData({
         ...DEFAULT_TASK,
         title: taskToEdit.title || '',
