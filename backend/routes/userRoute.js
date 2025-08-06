@@ -6,7 +6,9 @@ import authMiddleware from '../middleware/auth.js';
 const userRouter = express.Router();
 
 // PUBLIC LINKS
-
+userRouter.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok' });
+});
 userRouter.post('/register', registerUser);
 userRouter.post('/login', loginUser);
 
