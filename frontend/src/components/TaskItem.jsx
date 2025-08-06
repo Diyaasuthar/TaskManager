@@ -78,6 +78,22 @@ const TaskItem = ({ task, onRefresh, onLogout, showCompleteCheckbox = true }) =>
     }
   }
 
+  useEffect(() => {
+    if (!showMenu) return;
+    const handleClickOutside = (event) => {
+      if (
+        !event.target.closest('.menu-dropdown') &&
+        !event.target.closest('.menu-button')
+      ) {
+        setShowMenu(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showMenu]);
+
 
   const progress = subTasks.length ? (subTasks.filter(st => st.completed).length / subTasks.length) * 100 : 0
 
@@ -108,12 +124,12 @@ const TaskItem = ({ task, onRefresh, onLogout, showCompleteCheckbox = true }) =>
         <div className={TI_CLASSES.rightContainer}>
           <div className='relative'>
             <button onClick={() => setShowMenu(!showMenu)}
-              className={TI_CLASSES.menuButton}>
+              className={`${TI_CLASSES.menuButton} menu-button`}>
               <MoreVertical className='w-4 h-4 sm:w-5 sm:h-5' size={18} />
             </button>
 
             {showMenu && (
-              <div className={TI_CLASSES.menuDropdown}>
+              <div className={`${TI_CLASSES.menuDropdown} menu-dropdown`}>
                 {MENU_OPTIONS.map(opt => (
                   <button key={opt.action} onClick={() => handleAction(opt.action)} className='w-full px-3 sm:py-4 py-2 text-left text-xs sm:text-sm hover:bg-purple-50 flex items-center gap-2 transition-colors duration-200'>
                     {opt.icon}{opt.label}
