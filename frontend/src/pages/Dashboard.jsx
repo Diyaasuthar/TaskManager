@@ -6,7 +6,8 @@ import TaskItem from '../components/TaskItem'
 import axios from "axios";
 import TaskModel from '../components/TaskModel'
 
-const API_BASE = 'http://localhost:4000/api/task'
+const API_URL = import.meta.env.VITE_API_URL
+const API_BASE = `${API_URL}/api/task`
 
 const Dashboard = () => {
  

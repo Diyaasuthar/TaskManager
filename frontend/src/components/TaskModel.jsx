@@ -2,7 +2,8 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { baseControlClasses, DEFAULT_TASK, priorityStyles } from '../assets/dummy'
 import { AlignLeft, Calendar, CheckCircle, Flag, PlusCircle, Save, X } from 'lucide-react'
 
-const API_BASE = 'http://localhost:4000/api/task'
+const API_URL = import.meta.env.VITE_API_URL
+const API_BASE = `${API_URL}/api/task`
 
 const TaskModal = ({ isOpen, onClose, taskToEdit, onSave, onLogout }) => {
   const [taskData, setTaskData] = useState(DEFAULT_TASK)

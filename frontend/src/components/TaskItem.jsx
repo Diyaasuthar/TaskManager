@@ -5,7 +5,8 @@ import { Calendar, CheckCircle2, Clock, MoreVertical } from 'lucide-react'
 import {format, isToday} from 'date-fns'
 import TaskModal from './TaskModel'
 
-const API_BASE = 'http://localhost:4000/api/task'
+const API_URL = import.meta.env.VITE_API_URL
+const API_BASE = `${API_URL}/api/task`
 
 const TaskItem = ({ task, onRefresh, onLogout, showCompleteCheckbox = true }) => {
 

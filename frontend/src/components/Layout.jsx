@@ -5,6 +5,9 @@ import { Outlet } from "react-router-dom";
 import axios from "axios";
 import { Circle, Clock, TrendingUp, Zap } from "lucide-react";
 
+const API_URL = import.meta.env.VITE_API_URL
+
+
 const Layout = ({ onLogout, user }) => {
     const [tasks, setTasks] = useState([]);
     const [loading, setLoading] = useState(true)
@@ -18,7 +21,7 @@ const Layout = ({ onLogout, user }) => {
             if (!token) {
                 throw new Error("No auth token found")
             }
-            const { data } = await axios.get("http://localhost:4000/api/task/gp", {
+            const { data } = await axios.get(`${API_URL}/api/task/gp`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

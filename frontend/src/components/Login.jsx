@@ -6,14 +6,14 @@ import { BUTTON_CLASSES, INPUTWRAPPER } from "../assets/dummy";
 import axios from "axios";
 
 
-const INITIAL_FORM = {email: "",password: ""}
+const INITIAL_FORM = {email: "diya@gmail.com",password: "123445678"}
 const Login = ({onSubmit,onSwitchMode}) => {
     const [showPassword,setShowPassowrd] = useState(false)
     const [loading,setLoading] = useState(false)
     const [formData,setFormData] = useState(INITIAL_FORM)
      const [rememberMe,setRememberMe] = useState(false)
     const navigate = useNavigate();
-    const url = 'http://localhost:4000'
+    const url = import.meta.env.VITE_API_URL
     
 useEffect(()=>{
     const token = localStorage.getItem("token")
@@ -42,10 +42,10 @@ useEffect(()=>{
 
 const handleSubmit = async (e) =>{
     e.preventDefault()
-    if(!rememberMe){
-        toast.error('You must enable "Remember Me" to login')
-        return
-    }
+    // if(!rememberMe){
+    //     toast.error('You must enable "Remember Me" to login')
+    //     return
+    // }
     setLoading(true)
     try {
         const {data} = await axios.post(`${url}/api/user/login`,formData)
@@ -113,7 +113,7 @@ const fields = [
                 ))}
 
                 <div className="flex items-center">
-                    <input type="checkbox" id='remeberMe' checked={rememberMe} onChange={()=>setRememberMe(!rememberMe)} className="h-4 w-4 text-purple-500 focus:ring-purple-400 border-gray-300 rounded" required />
+                    <input type="checkbox" id='remeberMe' checked={rememberMe} onChange={()=>setRememberMe(!rememberMe)} className="h-4 w-4 text-purple-500 focus:ring-purple-400 border-gray-300 rounded" />
                     <label htmlFor="rememberMe" className="ml-2 block text-sm text-gray-700">Remember Me</label>
                 </div>
 
