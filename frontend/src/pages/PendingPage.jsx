@@ -35,7 +35,7 @@ const PendingPage = () => {
             <ListChecks className='text-purple-500' /> Pending Task
           </h1>
           <p className='text-sm text-gray-500 mt-1 ml-7'>
-            {sortedPendingTasks.length} task{sortedPendingTasks.length !== 1 && 's'}
+            {sortedPendingTasks.length} task{sortedPendingTasks.length !== 1 && 's '}
             Needing your attention
           </p>
         </div>

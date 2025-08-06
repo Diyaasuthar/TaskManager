@@ -145,6 +145,8 @@ const Dashboard = () => {
               <TaskItem key={task._id || task.id}  task={task} onRefresh={refreshTasks} showCompleteCheckbox onEdit={() => {setSelectTask(task); setShowModal(true)}}/>
             ))
           )}
+        
+          
         </div>
 
         {/* ADD TASK DESKTOP */}
